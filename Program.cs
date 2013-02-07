@@ -19,9 +19,10 @@ namespace NoZangyo
         private static void checkTimeAndShutdown()
         {
             DateTime now = DateTime.Now;
-            // 定時超えてたらシャットダウン確認ダイアログ。作者の定時19時をHardCodeしている。
+            // 定時超えてたらシャットダウン確認ダイアログ。作者の定時10時19時をHardCodeしている。
             // TODO : 引数または設定ファイルによる定時指定。
-            if (now.CompareTo(new DateTime(now.Year, now.Month, now.Day, 19, 0, 0)) == 1)
+            if (now.CompareTo(new DateTime(now.Year, now.Month, now.Day, 19, 0, 0)) == 1
+             || now.CompareTo(new DateTime(now.Year, now.Month, now.Day, 10, 0, 0)) == -1)
             {
                 System.Windows.Forms.DialogResult res = System.Windows.Forms.MessageBox.Show("残業しないで下さい！", "残業しないで下さい！", System.Windows.Forms.MessageBoxButtons.YesNoCancel);
                 // Yesなら10分待ってやる。それ以外ならあまり待たなくていい。
